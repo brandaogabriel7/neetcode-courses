@@ -1,15 +1,30 @@
-func removeDuplicates (nums []int) int {
-  n := len(nums)
+package staticarrays
 
-  left, right := 0, 0
+func removeDuplicates(nums []int) int {
+	n := len(nums)
 
-  for right < n {
-    nums[left] = nums[right]
-    for right < n && nums[left] == nums[right] {
-      right++
-    }
-    left++
-  }
+	left, right := 0, 0
 
-  return left
+	for right < n {
+		nums[left] = nums[right]
+		for right < n && nums[left] == nums[right] {
+			right++
+		}
+		left++
+	}
+
+	return left
+}
+
+func removeDuplicates2(nums []int) int {
+	left := 1
+
+	for right := 1; right < len(nums); right++ {
+		if nums[right] != nums[right-1] {
+			nums[left] = nums[right]
+			left++
+		}
+	}
+
+	return left
 }
