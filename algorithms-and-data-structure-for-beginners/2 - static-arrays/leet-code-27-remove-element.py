@@ -11,3 +11,13 @@ class Solution:
                 k += 1
 
         return k
+
+    def removeElement2(self, nums: List[int], val: int) -> int:
+        k = 0
+
+        for num in nums:
+            if num != val:
+                nums[k] = num
+                k += 1
+
+        return k
